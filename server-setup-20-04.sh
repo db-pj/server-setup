@@ -8,7 +8,6 @@ DEFAULT_PASS='d1g1t@l!'
 USERS=('db-admin' 'rfrankel' 'pj' 'roberto')
 GROUPS=('sudo' 'www-data' 'db-admin' 'docker')
 
-
 # TOOLS
 #*****************************************************************************
 TOOLS=(
@@ -49,6 +48,8 @@ REMOVE_TOOLS=(
 	'mysql'
 )
 
+#*****************************************************************************
+#*****************************************************************************
 
 
 # Install Tools
@@ -57,7 +58,6 @@ REMOVE_TOOLS=(
 for TOOL in "${TOOLS[@]}"; do
 	printf "sudo apt install ${TOOL} -y\n"
 done
-exit;
 
 # Remove some tools that may be pre-installed
 #*****************************************************************************
@@ -83,13 +83,12 @@ sudo curl -L "https://github.com/docker/compose/releases/download/${DOCKER_VERSI
 sudo chmod +x /usr/local/bin/docker-compose
 
 
-
-
 # Add Users and assign Groups
 #*****************************************************************************
 for USER in "${USERS[@]}"; do
 	sudo useradd -m $USER
 
+	# Add users to groups
 	for GROUP in "${GROUPS[@]}"; do
 		sudo usermod -a -G $GROUP $USER
 	done
