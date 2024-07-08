@@ -36,4 +36,5 @@ Logout and log back in
 ```
 $ cd /home/sites
 $ git clone https://github.com/digital-brands/datingnews
+$ sudo docker-compose build
 ```
