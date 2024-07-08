@@ -19,6 +19,7 @@ TOOLS=(
 	'build-essential'
 	'npm'
 	'certbot'
+ 	'direnv'
 	'python3-certbot-dns-cloudflare'
 
 	# Required for Docker
