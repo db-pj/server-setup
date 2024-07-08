@@ -21,3 +21,19 @@ $ git clone https://github.com/db-pj/server-setup
 $ cd server-setup
 $ ./server-setup-20-04.sh
 ```
+
+## Create sites directory
+```
+$ sudo mkdir /home/sites/
+$ sudo chown db-admin:db-admin /home/sites/
+$ sudo chmod 2775 /home/sites/
+$ sudo usermod -a -G db-admin [username]
+```
+
+Logout and log back in
+
+## Clone site
+```
+$ cd /home/sites
+$ git clone https://github.com/digital-brands/datingnews
+```
