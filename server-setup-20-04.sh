@@ -5,7 +5,7 @@ DEFAULT_PASS='d1g1t@l!'
 
 # USERS
 #*****************************************************************************
-USERS=('db-admin' 'rfrankel' 'pj' 'roberto')
+USERS=('db-admin' 'rfrankel' 'pj' 'roberto' 'jared')
 GROUPS=('sudo' 'www-data' 'db-admin' 'docker')
 
 # TOOLS
