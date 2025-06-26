@@ -91,5 +91,11 @@ bucketname='datingnews-01'
 $ tasks && ./site-start.sh --nodebug
 ```
 
+# Install Warmer
+```
+$ home && git clone https://github.com/digital-brands/warmer
+$ cd warmer/ && npm install
+```
+
 
 
