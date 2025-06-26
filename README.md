@@ -92,6 +92,10 @@ database='datingnews'
 bucketname='datingnews-01'
 ```
 
+## Restart the site
+```
+$ tasks && ./site-start.sh --nodebug
+```
 
 
 
