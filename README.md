@@ -68,12 +68,6 @@ $ cd volumes/phpfpm/gulp && npm install
 $ docker-compose build
 ```
 
-## Start Site
-```
-
-```
-
-
 ## Certs (unproxy on Cloudflare first)
 ```
 $ sude certbot certonly (choose option 2)
