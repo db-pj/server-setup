@@ -58,6 +58,40 @@ $ sudo cd /etc/profile.d && ln -s /home/sites/datingnews/site-aliases.sh site-al
 $ tasks && ./permissions-set.sh
 ```
 
+## node_modules
+```
+$ cd volumes/phpfpm/gulp && npm install
+```
+
+## Build Containers
+```
+$ docker-compose build
+```
+
+## Start Site
+```
+
+```
+
+
+## Certs (unproxy on Cloudflare first)
+```
+$ sude certbot certonly (choose option 2)
+$ tasks && ./cert-combine.sh
+```
+
+## Import DB
+```
+$ tasks && ./site-start.sh --nodebug
+$ tasks && ./database-monsoon.sh
+
+Exmaple monsson.cfg:
+username='root'
+siteurl='https://pj.passprotect.me'
+database='datingnews'
+bucketname='datingnews-01'
+```
+
 
 
 
