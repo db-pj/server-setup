@@ -70,7 +70,9 @@ $ docker-compose build
 
 ## Certs (unproxy on Cloudflare first)
 ```
-$ sude certbot certonly (choose option 2)
+$ sudo certbot certonly
+(choose option 2)
+
 $ tasks && ./cert-combine.sh
 ```
 
