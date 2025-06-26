@@ -52,3 +52,5 @@ DOMAIN_DEV="www.datingnews.com"
 ```
 $ sudo cd /etc/profile.d && ln -s /home/sites/datingnews/site-aliases.sh site-aliases.sh
 ```
+
+
