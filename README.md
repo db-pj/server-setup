@@ -85,7 +85,7 @@ $ tasks && ./cert-combine.sh
 $ tasks && ./site-start.sh --nodebug
 $ tasks && ./database-monsoon.sh
 
-Exmaple monsson.cfg:
+Example monsson.cfg:
 username='root'
 siteurl='https://pj.passprotect.me'
 database='datingnews'
