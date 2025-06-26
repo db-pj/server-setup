@@ -38,3 +38,17 @@ $ cd /home/sites
 $ git clone https://github.com/digital-brands/datingnews
 $ sudo docker-compose build
 ```
+
+## Env Vars
+```
+$ sudo vim /etc/environment
+
+DN_HOME_DIR=/home/datingnews
+IS_PRODUCTION=true
+DOMAIN_DEV="www.datingnews.com"
+```
+
+## Auto Load aliases
+```
+$ sudo cd /etc/profile.d && ln -s /home/sites/datingnews/site-aliases.sh site-aliases.sh
+```
