@@ -50,7 +50,7 @@ DOMAIN_DEV="www.datingnews.com"
 
 ## Auto Load aliases
 ```
-$ sudo cd /etc/profile.d && ln -s /home/sites/datingnews/site-aliases.sh site-aliases.sh
+$ cd /etc/profile.d && sudo ln -s /home/sites/datingnews/site-aliases.sh site-aliases.sh
 ```
 
 ## Run Permissions Script
