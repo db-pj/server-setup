@@ -98,6 +98,15 @@ $ tasks && ./site-start.sh --nodebug
 $ home && git clone https://github.com/digital-brands/warmer
 $ cd warmer/ && npm install
 ```
+## Enable UFW
+```
+$ sudo ufw enable
+$ sudo ufw allow 22
+$ sudo ufw allow 80
+$ sudo ufw allow 443
+$ sudo ufw allow mosh
 
+$ sudo ufw status
+```
 
 
