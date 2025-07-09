@@ -136,11 +136,13 @@ Steps:
    
      `IS_PRODUCTION=true`
 
-5. Certificate Combination: Run cert-combine.sh to create HAProxy-compatible cert
+5. Log out. Log back in.
 
-6. You can switch back to dev mode until ready to do the DNS switch `IS_PRODUCTION=false`
+6. Certificate Combination: Run cert-combine.sh to create HAProxy-compatible cert
 
-7.  When you're ready to switch DNS:
+7. You can switch back to dev mode until ready to do the DNS switch `IS_PRODUCTION=false`
+
+8.  When you're ready to switch DNS:
 
   - Set production environment:
   
