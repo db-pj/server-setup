@@ -28,6 +28,8 @@ $ sudo mkdir /home/sites/
 $ sudo chown db-admin:db-admin /home/sites/
 $ sudo chmod 2775 /home/sites/
 $ sudo usermod -a -G db-admin [username]
+$ sudo usermod -a -G docker [username]
+$ sudo usermod -a -G www-data [username]
 ```
 
 Logout and log back in
@@ -106,7 +108,7 @@ $ sudo ufw allow 22 && sudo ufw allow 80 && sudo ufw allow 443 && sudo ufw allow
 
 ## DNS (ONLY FOR TURNING SERVER INTO PRODUCTION)
 Steps:
-### 1. Pre-DNS Switch: Use Cloudflare DNS challenge to obtain www.hostingadvice.com cert
+### 1. Pre-DNS Switch: Use Cloudflare DNS challenge to obtain cert
 	1. Go to https://dash.cloudflare.com/profile/api-tokens
   	2. Click "Create Token"
   	3. Use "Custom token" template
@@ -120,36 +122,36 @@ Steps:
     9. `dns_cloudflare_api_token = YOUR_API_TOKEN_HERE`
     10. `sudo chmod 600 /root/cloudflare.ini && sudo chown root:root /root/cloudflare.ini`
     11. `sudo apt update && sudo apt install python3-certbot-dns-cloudflare`
-    12. Test:
-    
+
+### 2. Dry Run 
    `sudo certbot certonly --dns-cloudflare --dns-cloudflare-credentials /root/cloudflare.ini --dns-cloudflare-propagation-seconds 60 -d hostingadvice.com -d www.hostingadvice.com --dry-run`
    
-### 2. Certificate Generation:
+### 3. Certificate Generation:
 	If dry-run succeeds, run the actual certificate generation:
 	
  	`sudo certbot certonly --dns-cloudflare --dns-cloudflare-credentials /root/cloudflare.ini --dns-cloudflare-propagation-seconds 60 -d hostingadvice.com -d www.hostingadvice.com`
 
    Verify: `sudo ls -la /etc/letsencrypt/live`
 
-### 3. Set Environment Variables
+### 4. Set Environment Variables
      `sudo vim /etc/environment`
    
      `DOMAIN_PRODUCTION=hostingadvice.com`
    
      `IS_PRODUCTION=true`
 
-### 4. Log out. Log back in.
+### 5. Log out. Log back in.
 
-### 5. Certificate Combination: 
+### 6. Certificate Combination: 
    Run `tasks/cert-combine.sh` to create HAProxy-compatible cert
 
    Verify: `ls -la volumes/haproxy/certs`
 
-### 6. You can switch back to dev mode until ready to do the DNS switch 
+### 7. You can switch back to dev mode until ready to do the DNS switch 
 
 `IS_PRODUCTION=false`
 
-### 7.  When you're ready to switch DNS:
+### 8.  When you're ready to switch DNS:
 
   - Set production environment:
   
@@ -169,7 +171,4 @@ Steps:
 Update DNS in Cloudflare to point to new server
   
 Monitor - The certificate will be ready and working immediately
-
-   
-
 
