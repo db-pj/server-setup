@@ -106,7 +106,7 @@ $ sudo ufw allow 22 && sudo ufw allow 80 && sudo ufw allow 443 && sudo ufw allow
 
 ## DNS (ONLY FOR TURNING SERVER INTO PRODUCTION)
 Steps:
-1. Pre-DNS Switch: Use Cloudflare DNS challenge to obtain www.hostingadvice.com cert
+### 1. Pre-DNS Switch: Use Cloudflare DNS challenge to obtain www.hostingadvice.com cert
 	1. Go to https://dash.cloudflare.com/profile/api-tokens
   	2. Click "Create Token"
   	3. Use "Custom token" template
@@ -124,31 +124,38 @@ Steps:
     
    `sudo certbot certonly --dns-cloudflare --dns-cloudflare-credentials /root/cloudflare.ini --dns-cloudflare-propagation-seconds 60 -d hostingadvice.com -d www.hostingadvice.com --dry-run`
    
-2. Certificate Generation:
+### 2. Certificate Generation:
 	If dry-run succeeds, run the actual certificate generation:
 	
  	`sudo certbot certonly --dns-cloudflare --dns-cloudflare-credentials /root/cloudflare.ini --dns-cloudflare-propagation-seconds 60 -d hostingadvice.com -d www.hostingadvice.com`
 
-4. Set Environment Variables
+   Verify: `sudo ls -la /etc/letsencrypt/live`
+
+### 3. Set Environment Variables
      `sudo vim /etc/environment`
    
-     `DOMAIN_PRODUCTION=www.hostingadvice.com`
+     `DOMAIN_PRODUCTION=hostingadvice.com`
    
      `IS_PRODUCTION=true`
 
-5. Log out. Log back in.
+### 4. Log out. Log back in.
 
-6. Certificate Combination: Run cert-combine.sh to create HAProxy-compatible cert
+### 5. Certificate Combination: 
+   Run `tasks/cert-combine.sh` to create HAProxy-compatible cert
 
-7. You can switch back to dev mode until ready to do the DNS switch `IS_PRODUCTION=false`
+   Verify: `ls -la volumes/haproxy/certs`
 
-8.  When you're ready to switch DNS:
+### 6. You can switch back to dev mode until ready to do the DNS switch 
+
+`IS_PRODUCTION=false`
+
+### 7.  When you're ready to switch DNS:
 
   - Set production environment:
   
   `export IS_PRODUCTION=true`
 
-  `export DOMAIN_PRODUCTION=www.hostingadvice.com`
+  `export DOMAIN_PRODUCTION=hostingadvice.com`
   
 - Start production services:
   `./tasks/site-start.sh`
