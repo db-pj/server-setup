@@ -45,7 +45,7 @@ $ sudo docker-compose build
 ```
 $ sudo vim /etc/environment
 
-DN_HOME_DIR=/home/datingnews
+DN_HOME_DIR=/home/sites/datingnews
 IS_PRODUCTION=true
 DOMAIN_DEV="www.datingnews.com"
 ```
