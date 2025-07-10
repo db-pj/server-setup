@@ -47,7 +47,8 @@ $ sudo vim /etc/environment
 
 DN_HOME_DIR=/home/sites/datingnews
 IS_PRODUCTION=true
-DOMAIN_DEV="www.datingnews.com"
+DOMAIN_DEV="dn.passprotect.me"
+DOMAIN_PRODUCTION="datingnews.com"
 ```
 
 ## Auto Load aliases
