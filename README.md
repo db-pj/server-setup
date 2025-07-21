@@ -30,6 +30,7 @@ $ sudo chmod 2775 /home/sites/
 $ sudo usermod -a -G db-admin [username]
 $ sudo usermod -a -G docker [username]
 $ sudo usermod -a -G www-data [username]
+$ sudo usermod -a -G docker db-admin
 ```
 
 Logout and log back in
