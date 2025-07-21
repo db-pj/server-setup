@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [[ $EUID -ne 0 ]]; then
+   echo "This script must be run as root. Try: sudo $0"
+   exit 1
+fi
+
 DOCKER_VERSION='1.29.2'
 DEFAULT_PASS='d1g1t@l!'
 
@@ -75,6 +80,13 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 # Install Docker Compose
 sudo curl -L "https://github.com/docker/compose/releases/download/${DOCKER_VERSION}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
+
+# Ensure all groups exist
+for GROUP in "${GROUPS[@]}"; do
+    if ! getent group "$GROUP" > /dev/null; then
+        sudo groupadd "$GROUP"
+    fi
+done
 
 # Add Users and assign Groups
 for USER in "${USERS[@]}"; do
